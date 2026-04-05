@@ -4,7 +4,12 @@ from power_grid_env.env import PowerGridEnv
 from power_grid_env.models import Action
 
 
-app = FastAPI(title="Smart Power Grid Load Balancer")
+app = FastAPI(
+    title="Smart Power Grid Load Balancer",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
 
 @app.get("/")
 def home():
