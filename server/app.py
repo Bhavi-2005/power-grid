@@ -5,6 +5,11 @@ from power_grid_env.models import Action
 
 
 app = FastAPI(title="Smart Power Grid Load Balancer")
+
+@app.get("/")
+def home():
+    return {"message": "Smart Power Grid Environment is running ⚡"}
+
 env = PowerGridEnv()
 env.reset()
 
