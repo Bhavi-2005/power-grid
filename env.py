@@ -139,3 +139,7 @@ class PowerGridEnv:
             time_step=int(self.current_step),
         )
 
+    def close(self) -> None:
+        """Placeholder for cleanup hooks."""
+        return None
+
