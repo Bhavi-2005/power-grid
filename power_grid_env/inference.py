@@ -2,9 +2,6 @@ import os
 import sys
 from pathlib import Path
 
-if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from power_grid_env.env import PowerGridEnv
 from power_grid_env.models import Action
 from power_grid_env.graders.grader_hard import grade
@@ -51,7 +48,7 @@ def main():
         if done:
             break
 
-    score = sum(rewards) / len(rewards) if rewards else 0.0
+    score = grade(actions_taken, env)
     reward_values = ",".join(f"{reward:.2f}" for reward in rewards)
     print(f"[END] success=true steps={len(rewards)} score={score:.2f} rewards={reward_values}")
 

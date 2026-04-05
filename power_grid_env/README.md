@@ -1,3 +1,12 @@
+---
+title: Power Grid Env
+emoji: ⚡
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
 # Smart Power Grid Load Balancer
 
 ## Problem Description
@@ -74,7 +83,9 @@ power_grid_env/
 ├── Dockerfile
 ├── requirements.txt
 ├── README.md
-└── server.py
+└── server/
+    ├── __init__.py
+    └── app.py
 ```
 
 ## Setup
@@ -104,6 +115,15 @@ Run API server:
 ```bash
 uvicorn server:app --host 0.0.0.0 --port 7860
 ```
+
+Run with Docker:
+
+```bash
+docker build -t power-grid .
+docker run -p 8000:8000 power-grid
+```
+
+The API will be available at http://localhost:8000/docs
 
 Validate the environment:
 

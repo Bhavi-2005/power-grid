@@ -1,16 +1,20 @@
-import sys
-from pathlib import Path
-
-if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from fastapi import FastAPI
 
 from power_grid_env.env import PowerGridEnv
 from power_grid_env.models import Action
 
 
-app = FastAPI(title="Smart Power Grid Load Balancer")
+app = FastAPI(
+    title="Smart Power Grid Load Balancer",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
+
+@app.get("/")
+def home():
+    return {"message": "Smart Power Grid Environment is running ⚡"}
+
 env = PowerGridEnv()
 env.reset()
 
@@ -34,3 +38,12 @@ def step(action: Action):
 @app.get("/state")
 def state():
     return env.state().model_dump()
+
+
+def main():
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+if __name__ == "__main__":
+    main()

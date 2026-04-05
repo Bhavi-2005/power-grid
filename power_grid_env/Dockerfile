@@ -2,9 +2,9 @@ FROM python:3.10
 
 WORKDIR /app
 
-COPY . .
+COPY . /app/power_grid_env
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r power_grid_env/requirements.txt
 
-CMD ["python", "server.py"]
+CMD ["uvicorn", "power_grid_env.server.app:app", "--host", "0.0.0.0", "--port", "7860"]
 
