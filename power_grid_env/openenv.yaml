@@ -1,0 +1,15 @@
+name: power_grid_env
+description: Smart Power Grid Load Balancer Environment
+
+entry_point: power_grid_env.env:PowerGridEnv
+
+tasks:
+  - name: avoid_overload
+    grader: power_grid_env.graders.grader_easy:grade
+
+  - name: balance_demand
+    grader: power_grid_env.graders.grader_medium:grade
+
+  - name: optimize_grid
+    grader: power_grid_env.graders.grader_hard:grade
+
