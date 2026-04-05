@@ -125,6 +125,12 @@ docker run -p 8000:8000 power-grid
 
 The API will be available at http://localhost:8000/docs
 
+## Deployed Version
+
+The environment is deployed on Hugging Face Spaces and accessible at:
+
+https://Bhavishya-2005-power-grid-env.hf.space/docs
+
 Validate the environment:
 
 ```bash
