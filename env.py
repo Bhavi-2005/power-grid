@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Dict, List, Tuple
 
-from .models import Action, Observation, Region
+from models import Action, Observation, Region
 
 
 class PowerGridEnv:

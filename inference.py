@@ -2,12 +2,11 @@ import os
 import sys
 from pathlib import Path
 
-if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from power_grid_env.env import PowerGridEnv
-from power_grid_env.models import Action
-from power_grid_env.graders.grader_hard import grade
+from env import PowerGridEnv
+from models import Action
+from graders.grader_hard import grade
 
 
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
@@ -63,4 +62,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"[END] success=false steps=0 score=0.00 rewards= error={str(e)}")
