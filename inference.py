@@ -2,11 +2,13 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# 🔥 FIX PATH (CRITICAL)
+ROOT_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT_DIR))
 
-from env import PowerGridEnv
-from models import Action
-from graders.grader_hard import grade
+from power_grid_env.env import PowerGridEnv
+from power_grid_env.models import Action
+from power_grid_env.graders.grader_hard import grade
 
 
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
@@ -59,6 +61,7 @@ def main():
         f"[END] success={str(success).lower()} steps={len(rewards)} "
         f"score={score:.2f} rewards={reward_values}"
     )
+    sys.stdout.flush()
 
 
 if __name__ == "__main__":
