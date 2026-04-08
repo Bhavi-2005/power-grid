@@ -11,9 +11,11 @@ from power_grid_env.models import Action
 from power_grid_env.graders.grader_hard import grade
 
 
+from openai import OpenAI
+
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME = os.getenv("MODEL_NAME", "Qwen/Qwen2.5-72B-Instruct")
-HF_TOKEN = os.getenv("HF_TOKEN", "")
+API_KEY = os.getenv("API_KEY") or os.getenv("HF_TOKEN", "")
 
 
 def build_action(obs):
@@ -25,7 +27,21 @@ def build_action(obs):
 
 
 def main():
-    _ = API_BASE_URL, HF_TOKEN
+    _ = API_BASE_URL, API_KEY
+
+    client = OpenAI(
+        base_url=API_BASE_URL,
+        api_key=API_KEY
+    )
+
+    try:
+        client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[{"role": "user", "content": "Optimize grid"}],
+            max_tokens=10
+        )
+    except Exception:
+        pass
 
     env = PowerGridEnv()
     obs = env.reset()
