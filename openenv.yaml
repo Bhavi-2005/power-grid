@@ -1,15 +1,17 @@
-name: power_grid_env
-description: Smart Power Grid Load Balancer Environment
+name: power-grid-balancer
+version: "1.0.0"
+description: "AI-driven power grid load balancer for renewable energy optimization"
 
-entry_point: power_grid_env.env:PowerGridEnv
+environment:
+  module: power_grid_env.env:PowerGridEnv
+  dockerfile: Dockerfile
 
 tasks:
-  - name: avoid_overload
+  - name: easy
     grader: power_grid_env.graders.grader_easy:grade
 
-  - name: balance_demand
+  - name: medium
     grader: power_grid_env.graders.grader_medium:grade
 
-  - name: optimize_grid
+  - name: hard
     grader: power_grid_env.graders.grader_hard:grade
-
