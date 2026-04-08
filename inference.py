@@ -30,8 +30,8 @@ def main():
     _ = API_BASE_URL, API_KEY
 
     client = OpenAI(
-        base_url=API_BASE_URL,
-        api_key=API_KEY
+        base_url=os.getenv("API_BASE_URL"),
+        api_key=os.getenv("API_KEY") or os.getenv("HF_TOKEN")
     )
 
     try:
