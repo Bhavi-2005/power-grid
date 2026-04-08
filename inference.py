@@ -2,9 +2,9 @@ import os
 import sys
 from pathlib import Path
 
-# 🔥 FIX PATH (CRITICAL)
-ROOT_DIR = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT_DIR))
+if __package__ in (None, ""):
+    ROOT_DIR = Path(__file__).resolve().parent
+    sys.path.insert(0, str(ROOT_DIR))
 
 from power_grid_env.env import PowerGridEnv
 from power_grid_env.models import Action
@@ -68,4 +68,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"[END] success=false steps=0 score=0.00 rewards= error={str(e)}")
+        print(f"[END] success=false steps=0 score=0.00 rewards=[] error={str(e)}")
+        raise
