@@ -7,7 +7,7 @@ name = "power_grid_env"
 version = "0.1.0"
 description = "Smart Power Grid Load Balancer Environment"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
     "pydantic",
     "fastapi",
@@ -15,6 +15,8 @@ dependencies = [
     "openai",
     "openenv-core>=0.2.0",
 ]
+
+[tool.setuptools.packages.find]
 
 [project.scripts]
 server = "server.app:main"
