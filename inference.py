@@ -30,7 +30,7 @@ def main():
     env = PowerGridEnv()
     obs = env.reset()
 
-    print(f"[START] task=optimize_grid env=power_grid_env model={MODEL_NAME}")
+    print(f"START task=optimize_grid env=power_grid_env model={MODEL_NAME}")
 
     actions_taken = []
     rewards = []
@@ -45,7 +45,7 @@ def main():
 
         compact_action = "[" + ",".join(f"{value:.2f}" for value in allocations) + "]"
         print(
-            f"[STEP] step={step + 1} action={compact_action} "
+            f"STEP step={step + 1} action={compact_action} "
             f"reward={reward:.2f} done={str(done).lower()} error=null"
         )
 
@@ -58,8 +58,8 @@ def main():
 
     env.close()
     print(
-        f"[END] success={str(success).lower()} steps={len(rewards)} "
-        f"score={score:.2f} rewards={reward_values}"
+        f"END success={str(success).lower()} steps={len(rewards)} "
+        f"score={score:.2f} rewards=[{reward_values}]"
     )
     sys.stdout.flush()
 
@@ -68,5 +68,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"[END] success=false steps=0 score=0.00 rewards=[] error={str(e)}")
+        print(f"END success=false steps=0 score=0.00 rewards=[] error={str(e)}")
         raise
