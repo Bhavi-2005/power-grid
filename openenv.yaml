@@ -7,13 +7,19 @@ environment:
 
 tasks:
   - id: easy
-    name: Easy Task
-    grader: power_grid_env.graders.grader_easy:grade
+    description: Basic grid stability
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_easy:grade
 
   - id: medium
-    name: Medium Task
-    grader: power_grid_env.graders.grader_medium:grade
+    description: Demand balancing
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_medium:grade
 
   - id: hard
-    name: Hard Task
-    grader: power_grid_env.graders.grader_hard:grade
+    description: Cost and sustainability optimization
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_hard:grade
