@@ -1,4 +1,5 @@
-name: power-grid-balancer
+id: power_grid_env
+name: Smart Power Grid Load Balancer
 version: "1.0.0"
 description: "AI-driven power grid load balancer for renewable energy optimization"
 
@@ -7,11 +8,14 @@ environment:
   dockerfile: Dockerfile
 
 tasks:
-  - name: easy
+  - id: easy
+    name: Easy Task
     grader: power_grid_env.graders.grader_easy:grade
 
-  - name: medium
+  - id: medium
+    name: Medium Task
     grader: power_grid_env.graders.grader_medium:grade
 
-  - name: hard
+  - id: hard
+    name: Hard Task
     grader: power_grid_env.graders.grader_hard:grade
