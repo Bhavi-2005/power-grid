@@ -1,7 +1,5 @@
 id: power_grid_env
 name: Smart Power Grid Load Balancer
-version: "1.0.0"
-description: "AI-driven power grid load balancer for renewable energy optimization"
 
 environment:
   module: power_grid_env.env:PowerGridEnv
