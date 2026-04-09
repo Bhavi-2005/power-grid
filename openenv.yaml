@@ -1,8 +1,9 @@
 id: power_grid_env
 name: Smart Power Grid Load Balancer
+entrypoint: power_grid_env.env:PowerGridEnv
 
 environment:
-  module: power_grid_env.env:PowerGridEnv
+  entrypoint: power_grid_env.env:PowerGridEnv
   dockerfile: Dockerfile
 
 tasks:
