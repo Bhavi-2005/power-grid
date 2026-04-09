@@ -1,1 +1,0 @@
-﻿[OK] New project: Ready for multi-mode deployment
