@@ -1,12 +1,22 @@
 id: power_grid_env
+name: Power Grid Environment
 entrypoint: power_grid_env.env:PowerGridEnv
 
 tasks:
   - id: easy
-    grader: power_grid_env.graders.grader_easy:grade
+    name: Easy Task
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_easy:grade
 
   - id: medium
-    grader: power_grid_env.graders.grader_medium:grade
+    name: Medium Task
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_medium:grade
 
   - id: hard
-    grader: power_grid_env.graders.grader_hard:grade
+    name: Hard Task
+    grader:
+      type: python
+      entrypoint: power_grid_env.graders.grader_hard:grade
