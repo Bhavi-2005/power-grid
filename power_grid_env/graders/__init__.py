@@ -1,2 +1,1 @@
-"""Graders for Smart Power Grid tasks."""
-
+# empty file

@@ -2,9 +2,7 @@ import os
 import sys
 from pathlib import Path
 
-if __package__ in (None, ""):
-    ROOT_DIR = Path(__file__).resolve().parent
-    sys.path.insert(0, str(ROOT_DIR))
+sys.path.append(str(Path(__file__).resolve().parent))
 
 from power_grid_env.env import PowerGridEnv
 from power_grid_env.models import Action

@@ -1,6 +1,4 @@
 id: power_grid_env
-name: Power Grid Environment
-
 entrypoint: power_grid_env.env:PowerGridEnv
 
 tasks:

@@ -1,2 +1,1 @@
-"""Smart Power Grid Load Balancer package."""
-
+# empty file
