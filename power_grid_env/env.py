@@ -17,9 +17,6 @@ class PowerGridEnv:
             {"id": "medium"},
             {"id": "hard"}
         ]
-
-    def get_tasks(self) -> List[Dict[str, str]]:
-        return self.tasks
         self.region_names = ["North", "Central", "South"]
         self.base_demands = [80.0, 65.0, 50.0]
         self.demand_patterns = [
@@ -150,4 +147,7 @@ class PowerGridEnv:
     def close(self) -> None:
         """Placeholder for cleanup hooks."""
         return None
+
+    def get_tasks(self) -> List[Dict[str, str]]:
+        return self.tasks
 
