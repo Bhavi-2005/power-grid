@@ -12,6 +12,14 @@ class PowerGridEnv:
     def __init__(self) -> None:
         self.max_steps = 10
         self.current_step = 0
+        self.tasks = [
+            {"id": "easy"},
+            {"id": "medium"},
+            {"id": "hard"}
+        ]
+
+    def get_tasks(self) -> List[Dict[str, str]]:
+        return self.tasks
         self.region_names = ["North", "Central", "South"]
         self.base_demands = [80.0, 65.0, 50.0]
         self.demand_patterns = [
