@@ -1,26 +1,14 @@
 id: power_grid_env
-name: Smart Power Grid Load Balancer
-entrypoint: power_grid_env.env:PowerGridEnv
+name: Power Grid Environment
 
-environment:
-  entrypoint: power_grid_env.env:PowerGridEnv
-  dockerfile: Dockerfile
+entrypoint: power_grid_env.env:PowerGridEnv
 
 tasks:
   - id: easy
-    description: Basic grid stability
-    grader:
-      type: python
-      entrypoint: power_grid_env.graders.grader_easy:grade
+    grader: power_grid_env.graders.grader_easy:grade
 
   - id: medium
-    description: Demand balancing
-    grader:
-      type: python
-      entrypoint: power_grid_env.graders.grader_medium:grade
+    grader: power_grid_env.graders.grader_medium:grade
 
   - id: hard
-    description: Cost and sustainability optimization
-    grader:
-      type: python
-      entrypoint: power_grid_env.graders.grader_hard:grade
+    grader: power_grid_env.graders.grader_hard:grade
